@@ -88,7 +88,7 @@ function B2G {
 $CONVERT = B2G $CARGA
 $CONVERT-join "," | Out-File c:\salida.txt
 
-
+FUNCION PARA COMPRESION DE BYTES
 
 function G2B {  
 param([byte[]]$Data)
